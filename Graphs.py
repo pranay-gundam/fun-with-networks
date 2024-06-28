@@ -17,11 +17,9 @@ class Edge:
     def get_nodes(self):
         return (self.n1, self.n2)
     
-    def set_nodes(self, index, node):
-        if index == 1:
-            self.n1 = node
-        else:
-            self.n2 = node
+    def set_nodes(self, nodes):
+        self.n1 = nodes[0]
+        self.n2 = nodes[1]
 
 class DirectedEdge(Edge):
     def __init__(self, n1, n2):
@@ -30,9 +28,6 @@ class DirectedEdge(Edge):
     def get_nodes(self):
         return super().get_nodes()
     
-    def set_nodes(self, index, node):
-        return super().set_nodes(index, node)
-
     def get_node1(self):
         return self.n1
     
@@ -40,7 +35,11 @@ class DirectedEdge(Edge):
         return self.n2
 
     def set_nodes(self, index, node):
-        super().set_nodes(index, node)
+        assert index == 1 or index == 2
+        if index == 1:
+            self.n1 = node
+        else:
+            self.n2 = node
 
 
 class WeightedEdge(Edge):
@@ -51,8 +50,8 @@ class WeightedEdge(Edge):
     def get_nodes(self):
         return super().get_nodes()
 
-    def set_nodes(self, index, node):
-        super().set_nodes(index, node)
+    def set_nodes(self, nodes):
+        super().set_nodes(nodes)
 
     def get_weight(self):
         return self.weight
@@ -69,7 +68,11 @@ class WeightedDirectedEdge(WeightedEdge):
         return super().get_nodes()
     
     def set_nodes(self, index, node):
-        super().set_nodes(index, node)
+        assert index == 1 or index == 2
+        if index == 1:
+            self.n1 = node
+        else:
+            self.n2 = node
 
     def get_weight(self):
         return super().get_weight()
@@ -106,11 +109,11 @@ class Graph:
     
     def add_edge(self, edge, safety = True):
         if safety and not self.has_nodes(edge.get_nodes()):
-            raise "Nodes of the given edge do not exist in this graph"
+            raise ValueError("Nodes of the given edge do not exist in this graph")
         self.edges.append(edge)
 
     def remove_edge(self, edge):
-        self.edges.pop(edge)
+        self.edges.remove(edge)
 
     # TBD, draw a graph using any open source, easy to download, visualization package
     def draw_graph(self):
