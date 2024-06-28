@@ -8,4 +8,6 @@ I'm currently reading this book called *The Human Network* by Matthew O. Jackson
 
 ## Basic Features
 
-There is some very basic code that builds un-weighted/weighted and un-directed/directed graphs. At their core, graphs consist of a collection of nodes and edges.
+There is some very basic code that builds un-weighted/weighted and un-directed/directed graphs. At their core, graphs consist of a collection of nodes and edges; there is a little additional nuance one can add in the form of weighting edges or directing edges but this is not to difficult of a facility to add.
+
+The functionalities of the objects themselves involve getting and setting the relevant attributes of nodes and edges and there is some in-built protection such that un-directed edges cannot reveal some inherent ordering of the edges. The way graphs are implemented in this code base leaves some room for speed improvements but this is an issue I am leaving up to the analysis part of this codebase.

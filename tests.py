@@ -23,7 +23,16 @@ assert edge1.get_nodes() == (node2, node3)
 
 
 # Tests to create and modify weighted edges
+wedge1 = WeightedEdge(node1, node2)
+assert wedge1.get_nodes() == (node1, node2)
+assert wedge1.get_weight == 0.0
 
+wedge1.set_weight(10.0)
+assert wedge1.get_weight == 10.0
+
+wedge2 = WeightedEdge(Node(), Node(), 20.0)
+assert wedge2.get_nodes() == (Node(), Node())
+assert wedge2.get_weight == 20.0
 
 # Tests to create and modify directed edges
 

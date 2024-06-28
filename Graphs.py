@@ -43,7 +43,7 @@ class DirectedEdge(Edge):
 
 
 class WeightedEdge(Edge):
-    def __init__(self, n1, n2, weight = 0):
+    def __init__(self, n1, n2, weight = 0.0):
         super().__init__(n1, n2)
         self.weight = weight
 
@@ -114,6 +114,10 @@ class Graph:
 
     def remove_edge(self, edge):
         self.edges.remove(edge)
+
+    # TBD, removes a node and all the edges that correspond to this node from the graph
+    def remove_node(self, node):
+        pass
 
     # TBD, draw a graph using any open source, easy to download, visualization package
     def draw_graph(self):
