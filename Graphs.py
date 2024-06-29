@@ -115,9 +115,13 @@ class Graph:
     def remove_edge(self, edge):
         self.edges.remove(edge)
 
-    # TBD, removes a node and all the edges that correspond to this node from the graph
-    def remove_node(self, node):
-        pass
+    def remove_node(self, node, safety = True):
+        if safety and not self.has_nodes([node]):
+            raise ValueError("Node does not exist in this graph")
+        self.nodes.remove(node)
+        for edge in self.edges:
+            if node in edge.get_nodes():
+                self.edges.remove_edge(edge) 
 
     # TBD, draw a graph using any open source, easy to download, visualization package
     def draw_graph(self):
