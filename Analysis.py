@@ -2,6 +2,7 @@ from Graphs import *
 
 # TBD: Returns the number of neighbors a given node has in a given graph.
 def degree_centrality(graph, node):
+    #return type is Int
     pass
 
 # TBD: Returns the sum of connections an individual has where a direct connection is given weight x^0, a second degree connection
