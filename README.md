@@ -1,6 +1,6 @@
 # fun-with-networks
 
-Authors: Pranay Gundam and Anouska Siva
+Authors: Pranay Gundam
 
 ## Introduction
 
